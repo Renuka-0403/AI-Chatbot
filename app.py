@@ -1,11 +1,11 @@
-import os
 import streamlit as st
-from dotenv import load_dotenv
 from huggingface_hub import InferenceClient
 
-load_dotenv()
+HF_TOKEN = st.secrets["HF_TOKEN"]
 
-HF_TOKEN = os.getenv("HF_TOKEN")
+client = InferenceClient(
+    api_key=HF_TOKEN
+)
 
 st.set_page_config(
     page_title="Lumora AI",
